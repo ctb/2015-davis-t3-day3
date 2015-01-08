@@ -10,8 +10,9 @@ kh.consume_fasta(sys.argv[1])
 hist = [0]*1000
         
 for n, record in enumerate(screed.open(sys.argv[1])):
+    sequence = record.sequence.replace('N', 'A')
     positions = kh.find_spectral_error_positions(\
-        record.sequence, CUTOFF)
+        sequence, CUTOFF)
 
     for pos in positions:
         hist[pos] += 1
