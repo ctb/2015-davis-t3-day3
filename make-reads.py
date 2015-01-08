@@ -9,7 +9,8 @@ L=100
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('genomefile')
-    parser.add_argument('--error', type=int)
+    parser.add_argument('--error', type=int,
+                        default=L)
     args = parser.parse_args()
 
     genomefile = args.genomefile
