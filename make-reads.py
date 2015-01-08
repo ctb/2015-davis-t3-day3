@@ -23,15 +23,15 @@ def main():
         end = start + L
         read = genome[start:end]
 
+        if random.choice([0,1]):
+            read = screed.rc(read)
+
         for _ in range(L):
             if random.randint(0, args.error) == 0:
                 position = random.randint(0, L - 1)
                 newbase = random.choice(["a", "c", "g", "t"])
                 read = read[:position] + newbase + \
                        read[position+1:]
-
-        if random.choice([0,1]):
-            read = screed.rc(read)
 
         assert len(read) == L
         print '>read%d\n%s' % (i, read)
